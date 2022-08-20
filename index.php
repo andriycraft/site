@@ -215,6 +215,7 @@
 	    	<br>
     </center>
     <center class="footer">
+        <br>
         <p><a href="?action=privacy">Privacy Policy</a> </p>
         <br>
         <br>
