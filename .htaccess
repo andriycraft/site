@@ -1,0 +1,26 @@
+ErrorDocument 400 /error/400.php
+ErrorDocument 429 /error/429.php
+ErrorDocument 404 /error/404.php
+ErrorDocument 403 /error/403.php
+ErrorDocument 500 /error/500.php
+ErrorDocument 503 /error/500.php
+
+Header set X-XSS-Protection "1; mode=block"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
+Header set Referrer-Policy "same-origin"
+
+Redirect 302 /privacy.php /Privacy.php
+Redirect 302 /forum/images/roundo/darko/roundo-darko-logo.png https://newcdn.andriycraft.page/newwebsitefiles/img/server-icon.png
+Redirect 302 /wp-login.php https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Redirect 302 /wp-admin.php https://www.youtube.com/watch?v=dQw4w9WgXcQ
+Redirect 302 /wp/ https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_USER_AGENT} ^UptimeRobot [NC]
+  RewriteRule .* - [F,L]
+</IfModule>
