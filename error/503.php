@@ -1,7 +1,7 @@
 <?php
-$code = '404';
-$d = 'Сторінка не знайдена';
-$headerinfo = '404 Not Found';
+$code = '503';
+$d = 'Тимчасове технічне обслуговування нашого сайта. Більше інформації: <a href="https://discord.gg/gqzU5K4WjP">https://discord.gg/gqzU5K4WjP</a><br>Статус сервера: <a href="https://andriycraft.instatus.com</a>">https://andriycraft.instatus.com</a>';
+$headerinfo = '503';
 
 header('HTTP/3 ' . headerinfo);
 ?>

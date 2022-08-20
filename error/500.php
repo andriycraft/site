@@ -3,7 +3,7 @@ $code = '500';
 $d = 'Сталася невідома помилка';
 $headerinfo = '500 Internal Server Error';
 
-header('HTTP/1.0 ' . headerinfo);
+header('HTTP/3 ' . headerinfo);
 ?>
 <!DOCTYPE html>
 <html lang="uk">

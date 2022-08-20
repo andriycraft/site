@@ -3,7 +3,7 @@ ErrorDocument 429 /error/429.php
 ErrorDocument 404 /error/404.php
 ErrorDocument 403 /error/403.php
 ErrorDocument 500 /error/500.php
-ErrorDocument 503 /error/500.php
+ErrorDocument 503 /error/503.php
 
 Header set X-XSS-Protection "1; mode=block"
 Header set X-Frame-Options "SAMEORIGIN"
