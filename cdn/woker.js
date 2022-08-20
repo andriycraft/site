@@ -7,9 +7,9 @@ addEventListener("fetch", (event) => {
 
 
 function getHeaders(request) {
-let headersObject = Object.fromEntries(request.headers)
-let requestHeaders = JSON.stringify(headersObject, null, 0)
-return requestHeaders
+  let headersObject = Object.fromEntries(request.headers)
+  let requestHeaders = JSON.stringify(headersObject, null, 0)
+  return requestHeaders
 }
 
 
@@ -21,12 +21,12 @@ async function handleRequest(request) {
     "content": null,
     "embeds": [
       {
-        "title":"CDN запит",
+        "title": "CDN запит",
         "description": "IP: " + request.headers.get('x-real-ip') + "\nURL: " + pathname + "\nХейдери: " + getHeaders(request),
-        "color":10857488
+        "color": 10857488
       }
     ],
-    "attachments":[]
+    "attachments": []
   }
 
   const init = {
@@ -37,23 +37,23 @@ async function handleRequest(request) {
     },
   };
   const response = await fetch('https://discord.com/api/webhooks/1010445866684923994/F9qNpDJ-iV21kW5NLSGRFEnGCeAuqx-C5g7V1_lIltcpF9O3ciLcHArfqR3WyuSdm7NN', init);
- 
+
   console.log(request)
 
   switch (pathname) {
     case '/':
       return new Response(`
-      Вітаємо в CDN-API AndriyCraft-a:
+Вітаємо в CDN-API AndriyCraft-a:
       
-      Можливі запити:
-      [Метод] {URL} [Пояснення]
-      API:
+Можливі запити:
+[Метод] {URL} [Пояснення]
+API:
       
-      GET /api/status Статус API
-      GET /api/getreviews Получити відгуки
-      GET andriycraft.page/api/postreview Надіслати відгук | Вертає ТІЛЬКИ RAW відповідь
+GET /api/status Статус API
+GET /api/getreviews Получити відгуки
+GET andriycraft.page/api/postreview Надіслати відгук | Вертає ТІЛЬКИ RAW відповідь
 
-      `)
+`)
       break;
     case '/stat/forum/click':
       return new Response(`Ваш браузер не підтрмує перенаправлення. Щоб продовжити перейдіть по йому посиланні вручну: <a href="https://andriycraft.page/forum">https://andriycraft.page/forum</a>`, {
@@ -84,15 +84,29 @@ async function handleRequest(request) {
 <img style="width: 17px" src="https://img.icons8.com/ios-filled/50/000000/pixel-star.png">
 </b></p>
       `, {
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'content-type': 'text/html;charset=UTF-8',
-    },
-  })
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'content-type': 'text/html;charset=UTF-8',
+        },
+      })
       break;
+    case '/static/error.css':
+      return new Response(`
+* {
+    font-family: Roboto, sans-serif;
+}
+      `, { headers: { 'content-type': 'text/css;charset=UTF-8', }, })
+      break
+      case '/static/error.css':
+        return new Response(`
+  * {
+      font-family: Roboto, sans-serif;
+  }
+        `, { headers: { 'content-type': 'application/javascript;charset=UTF-8', }, })
+        break
     case '/static/css.css':
-            return new Response(`
-     *
+      return new Response(`
+*
 {
     margin: 0;
     padding: 0;
@@ -155,7 +169,6 @@ a
     color: rgb(70, 49, 30);
 }
 
-
 .footer
 {
     background-color:#533e3e;
@@ -172,28 +185,12 @@ a
 .screenshots_from_server_img
 {
     padding: 13px;
-}`, {
-    headers: {
-      'content-type': 'text/css;charset=UTF-8',
-    },
-  })
+}`, { headers: { 'content-type': 'text/css;charset=UTF-8', }, })
       break;
     case '/static/js.js':
-            return new Response(`
-
-
-
+      return new Response(`
 function copyserverip() {
-    const ip = prompt('IP Серверу (версія 1.9.x - 1.18.2):', 'play.andriycraft.page');
-    console.log('Opened');
-}
-
-function redirect2() {
-    location.href = 'https://andriycraft.page/forum';
-}
-
-function redirect3() {
-    location.href = 'http://andriycraft.page/';
+    const ip = prompt('IP Серверу (версія 1.7 - 1.19.2):', 'play.andriycraft.page');
 }
 
 function v() {
@@ -236,20 +233,10 @@ function v() {
         confirmButtonText:
             'Ок',
         confirmButtonAriaLabel: 'Ок',
-        cancelButtonText:
-            'Закрити',
-        cancelButtonAriaLabel: 'Закрити'
     });
-}`, {
-    headers: {
-      'content-type': 'application/javascript;charset=UTF-8',
-    },
-  })
+}`, { headers: { 'content-type': 'application/javascript;charset=UTF-8', }, })
       break;
     default:
       throw new Error('404')
   }
-
-
-  return fetch("https://welcome.developers.workers.dev");
 }

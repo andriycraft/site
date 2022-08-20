@@ -3,7 +3,7 @@ $code = '400';
 $d = 'Поганий запит';
 $headerinfo = '400';
 
-header('HTTP/1.0 ' . headerinfo);
+header('HTTP/3 ' . headerinfo);
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -13,11 +13,7 @@ header('HTTP/1.0 ' . headerinfo);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AndriyCraft | <?php echo $code ?></title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <style>
-    *{
-        font-family: Roboto, sans-serif;
-    }
-    </style>
+    <link href="https://cdn.andriycraft.page/static/error.css" rel="stylesheet">
 </head>
 <body>
     <center style="color: #444; margin:0;">

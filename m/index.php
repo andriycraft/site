@@ -72,9 +72,9 @@ if ($action == "privacy") {
                 <p id="review_text">
                     <script>
                     function getreviews() {
-                        var request = new XMLHttpRequest(); 
+                        let request = new XMLHttpRequest(); 
                         request.onreadystatechange = function() {
-                         if (this.readyState == 4 && this.status == 200) { 
+                         if (this.readyState == 4) { 
                             document.getElementById("review_text").innerHTML = request.responseText;
                          }  
                         }
@@ -82,7 +82,7 @@ if ($action == "privacy") {
                             document.getElementById("review_text").style.color = "red"
                             document.getElementById("review_text").innerHTML = "Невдалося завантажити відгуки :("
                         }
-                        request.open("POST", "../../api/get_reviews.php", true); 
+                        request.open("POST", "https://cdn.andriycraft.page/api/getreviews", true); 
                         request.send(); 
                         
                     }
@@ -91,7 +91,7 @@ if ($action == "privacy") {
                 </p>
             </div>
         </div>
-        <a href="../addreview.php">Добавити відгук</a> <br>
+        <a href="../addreview.php">Добавити свій відгук</a> <br>
     </center>
     <hr>
     <center class="news">
