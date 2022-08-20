@@ -1,13 +1,6 @@
 <?php
 //header('HTTP/1.0 503');
-//die('<h3>503 - Сайт на тех. обслуговуванні</h3><a href="https://andriycraft.instatus.com/">Більше інформації</a>');
-
-$action = $_GET["action"];
-if ($action == "privacy") { 
-    echo '<iframe src="./Privacy.php" style="border:0; height: 100%; width: 100%;">';
-    die();
-}
-
+//die('<h3>503 - Сайт на технічному обслуговуванні</h3><a href="https://andriycraft.instatus.com/">Більше інформації</a>');
 ?>
 
 <!DOCTYPE html>
