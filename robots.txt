@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /m/
+Allow: /
+Allow: /forum/
+Disallow: /api/
+Disallow: /error/
+
+User-agent: AndriyCraftstatus
+Disallow: /
+Allow: /api/st.php
+
+Host: andriycraft.page
