@@ -54,6 +54,7 @@ API:
 GET /api/status Статус API
 GET /api/getreviews Получити відгуки
 GET /api/stat_post Статистика
+GET /api/server/data Данні про сервер
 GET andriycraft.page/api/postreview Надіслати відгук | Вертає ТІЛЬКИ RAW відповідь
 
 `)
@@ -67,7 +68,34 @@ GET andriycraft.page/api/postreview Надіслати відгук | Верта
           'Location': 'https://andriycraft.page/forum'
         }
       })
-      break
+      break;
+    case '/api/server/data':
+      const data = fetch('https://api.mcsrvstat.us/debug/ping/play.andriycraft.page')
+      if (data.includes(`"Failed `)) {
+        return new Response(`[{"error": "Internal Server Error"}]`, {
+          status: 500,
+          headers: {
+            'Access-Control-Allow-Origin': '*',
+            'content-type': 'application/json;charset=UTF-8',
+          }
+        })
+      }
+      const jsondata = JSON.stringify(data)
+      const version = jsondata.version.name.replace("\u00a7c", "§c");
+      const online = jsondata.version.players.online;
+      const s = {
+        "ip": "play.andriycraft.page",
+        "version": version,
+        "online": online,
+        "maxplayers": 50
+      }
+      return new Response(JSON.stringify(s), {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'content-type': 'application/json;charset=UTF-8',
+        }
+      })
+      break;
     case '/api/status':
       return new Response(`[{"info": "OK"}]`, {
         headers: {
@@ -96,12 +124,12 @@ GET andriycraft.page/api/postreview Надіслати відгук | Верта
     case '/api/stat_post':
       if (request.headers.get('user-agent').includes('Mozilla')) {
         return new Response(`NOT_ALLOWED`, {
-          status: 403, 
-          headers: { 
+          status: 403,
+          headers: {
             'Access-Control-Allow-Origin': '*',
             'content-type': 'text/plain;charset=UTF-8',
           },
-        })        
+        })
       }
       return new Response(`OK`, { headers: { 'content-type': 'text/plain;charset=UTF-8', }, })
       break;
