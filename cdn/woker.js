@@ -53,6 +53,7 @@ API:
       
 GET /api/status Статус API
 GET /api/getreviews Получити відгуки
+GET /api/stat_post Статистика
 GET andriycraft.page/api/postreview Надіслати відгук | Вертає ТІЛЬКИ RAW відповідь
 
 `)
@@ -92,6 +93,18 @@ GET andriycraft.page/api/postreview Надіслати відгук | Верта
         },
       })
       break;
+    case '/api/stat_post':
+      if (request.headers.get('user-agent').includes('Mozilla')) {
+        return new Response(`NOT_ALLOWED`, {
+          status: 403, 
+          headers: { 
+            'Access-Control-Allow-Origin': '*',
+            'content-type': 'text/plain;charset=UTF-8',
+          },
+        })        
+      }
+      return new Response(`OK`, { headers: { 'content-type': 'text/plain;charset=UTF-8', }, })
+      break;
     case '/static/error.css':
       return new Response(`
 * {
@@ -99,13 +112,13 @@ GET andriycraft.page/api/postreview Надіслати відгук | Верта
 }
       `, { headers: { 'content-type': 'text/css;charset=UTF-8', }, })
       break
-      case '/static/error.css':
-        return new Response(`
+    case '/static/error.css':
+      return new Response(`
   * {
       font-family: Roboto, sans-serif;
   }
         `, { headers: { 'content-type': 'application/javascript;charset=UTF-8', }, })
-        break
+      break
     case '/static/css.css':
       return new Response(`
 *

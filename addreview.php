@@ -1,21 +1,29 @@
-<?php
-//header('HTTP/1.0 500');
-//die('<h1>500 - Internal Server Error</h1>');
-
-$action = $_GET["action"];
-if ($action == "privacy") { 
-    echo '<iframe src="./Privacy.php" style="border:0; height: 100%; width: 100%;">';
-    die();
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="minecraftserver, andriycraft">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name='language' content="UA">
+    <meta name='url' content='https://andriycraft.page/'>
+    <meta name='reply-to' content='admin@andriycraft.page'>
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="https://andriycraft.page/"/>
+    <meta property="og:url" content="https://andriycraft.page"/>
+    <meta property="og:title" content="AndriyCraft"/>
+    <meta property="og:image" content="https://andriycraftstaticfiles.000webhostapp.com/newwebsitefiles/img/server-icon.png"/>
+    <meta property="og:locale" content="UK_ua"/>
+    <meta name="twitter:site" content="AndriyCraft"/>
+    <meta name="twitter:title" content="AndriyCraft"/>
+    <meta name="twitter:description" content="AndriyCraft"/>
+    <meta name="twitter:image" content="https://andriycraftstaticfiles.000webhostapp.com/newwebsitefiles/img/server-icon.png" />
+    <title>AndriyCraft | Головна сторінка</title>
+    <link href="https://andriycraftstaticfiles.000webhostapp.com/newwebsitefiles/img/server-icon.png" rel="icon">
+    <link href="https://andriycraftstaticfiles.000webhostapp.com/newwebsitefiles/img/server-icon.png" rel="shortcut icon">
     <title>AndriyCraft | Добавити відгук</title>
     <link href="https://andriycraftstaticfiles.000webhostapp.com/newwebsitefiles/img/server-icon.png" rel="icon">
     <link href="https://cdn.andriycraft.page/static/css.css" rel="stylesheet">
